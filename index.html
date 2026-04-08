@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Arena PvP - Snake Battle en Solana</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Solana Web3 -->
+    <script src="https://unpkg.com/@solana/web3.js@1.87.6/lib/index.iife.min.js"></script>
+    <!-- Phantom Wallet Adapter -->
+    <script src="https://unpkg.com/@solana/wallet-adapter-phantom@0.18.2/lib/index.iife.js"></script>
+    <!-- Anchor JS -->
+    <script src="https://unpkg.com/@project-serum/anchor@0.30.1/dist/index.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐍 ARENA PVP - SNAKE BATTLE</h1>
+            <button id="walletButton" class="wallet-btn">Conectar Phantom</button>
+        </div>
+
+        <div id="walletStatus" class="status-card">
+            <span id="walletAddress">⚡ No conectado</span>
+            <span id="walletBalance">0 SOL</span>
+        </div>
+
+        <div class="game-panel">
+            <canvas id="gameCanvas" width="500" height="500"></canvas>
+            <div class="info-panel">
+                <div class="score-board">
+                    <h3>🏆 PUNTUACIÓN</h3>
+                    <div id="score">0</div>
+                </div>
+                <div class="game-status">
+                    <h3>📡 ESTADO</h3>
+                    <div id="gameStatus">Conecta tu wallet para empezar</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lobby-panel">
+            <h2>🏟️ ARENA DE COMBATE</h2>
+            
+            <div class="create-room">
+                <h3>⚔️ CREAR NUEVA SALA</h3>
+                <input type="number" id="stakeAmount" placeholder="Apuesta (SOL)" value="0.1" step="0.1" min="0.1">
+                <button id="createGameBtn" class="action-btn">🎮 Crear Sala</button>
+            </div>
+
+            <div class="rooms-list">
+                <h3>📋 SALAS DISPONIBLES</h3>
+                <div id="roomsContainer" class="rooms-container">
+                    <div class="loading">Cargando salas...</div>
+                </div>
+            </div>
+
+            <div id="myGameContainer" class="my-game" style="display:none;">
+                <h3>🎯 TU SALA ACTUAL</h3>
+                <div id="myGameInfo"></div>
+                <button id="startGameBtn" class="action-btn" style="display:none;">▶️ Iniciar Partida</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Primero carga el IDL, luego la lógica -->
+    <script src="idl.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
