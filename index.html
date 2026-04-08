@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Arena PvP - Snake Battle</title>
+    <style>
+        body {
+            background: #0a0f1e;
+            color: white;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: #1a2a3a;
+            border-radius: 20px;
+            padding: 20px;
+            width: 800px;
+        }
+        canvas {
+            background: #0a1220;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        button {
+            background: #00d4ff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+        }
+        .room-list {
+            background: #0a0f1e;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .room-item {
+            background: #2a3a5a;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🐍 Arena PvP - Snake Battle</h1>
+    
+    <div>
+        <button id="connectBtn">🔌 Conectar Wallet</button>
+        <span id="walletAddress">No conectado</span>
+        <span id="balance">💰 0 SOL</span>
+    </div>
+
+    <div>
+        <input type="number" id="stakeInput" value="0.1" step="0.1" min="0.1">
+        <button id="createGameBtn">➕ Crear Sala</button>
+        <button id="premiumBtn">⭐ Premium (0.5 SOL)</button>
+    </div>
+
+    <div class="room-list" id="roomsList">
+        <div>Conecta tu wallet para ver salas</div>
+    </div>
+
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+    <div>
+        <button id="claimBtn">🏆 Reclamar Premio</button>
+        <button id="leaveBtn">🚪 Salir</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/@solana/web3.js@1.95.3/lib/index.iife.js"></script>
+<script src="https://unpkg.com/@project-serum/anchor@0.29.0/dist/browser.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
